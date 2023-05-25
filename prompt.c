@@ -59,7 +59,7 @@ if (cmd != NULL)
 free(cmd);
 cmd = NULL;
 }
-printf("Exiting the shell...\n");
+printf("\n");
 exit(EXIT_SUCCESS);
 }
 if (strcmp(cmd, "env") == 0)
