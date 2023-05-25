@@ -20,11 +20,12 @@
 
 void printEnvironment(void)
 {
+extern char **environ;
 char **env = environ;
+
 while (*env != NULL)
 {
-write(STDOUT_FILENO, *env, strlen(*env));
-write(STDOUT_FILENO, "\n", 1);
+printf("%s\n", *env);
 env++;
 }
 }

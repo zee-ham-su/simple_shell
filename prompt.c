@@ -6,14 +6,6 @@
 #include <sys/wait.h>
 #include <unistd.h>
 
-/**
- * prompt - prints,scan, execute and loop.
- * 
- * @shellName: name of the shell
- *
- * void
- */
-
 void prompt(char *shellName)
 {
 char *cmd = NULL;
@@ -30,8 +22,7 @@ for (;;)
 {
 if (isatty(STDIN_FILENO))
 {
-write(STDOUT_FILENO, shellName, strlen(shellName));
-write(STDOUT_FILENO, "@ ", 2);
+printf("%s@ ", shellName);
 }
 read_line = getline(&cmd, &cmd_size, stdin);
 if (read_line == -1)
@@ -43,7 +34,7 @@ cmd = NULL;
 }
 if (feof(stdin))
 {
-write(STDOUT_FILENO, "\n", 1);
+printf("\n");
 exit(EXIT_SUCCESS);
 }
 perror("ERROR");
@@ -57,7 +48,7 @@ if (cmd != NULL)
 free(cmd);
 cmd = NULL;
 }
-write(STDOUT_FILENO, "Exiting the shell...\n", 21);
+printf("Exiting the shell...\n");
 exit(EXIT_SUCCESS);
 }
 if (strcmp(cmd, "env") == 0)
@@ -70,23 +61,20 @@ cmd = NULL;
 printEnvironment();
 continue;
 }
-write(STDOUT_FILENO, "Command received: ", 18);
-write(STDOUT_FILENO, cmd, strlen(cmd));
-write(STDOUT_FILENO, "\n", 1);
+printf("Command received: %s\n", cmd);
 
 tokenizeCommand(cmd, argv, &argc);
-write(STDOUT_FILENO, "Tokenized arguments: ", 21);
+printf("Tokenized arguments: ");
 for (i = 0; i < argc; i++)
 {
-write(STDOUT_FILENO, argv[i], strlen(argv[i]));
-write(STDOUT_FILENO, " ", 1);
+printf("%s ", argv[i]);
 }
-write(STDOUT_FILENO, "\n", 1);
+printf("\n");
 
 child_id = fork();
 if (child_id == -1)
 {
-free (cmd);
+free(cmd);
 exit(EXIT_FAILURE);
 }
 if (child_id == 0)
@@ -106,6 +94,5 @@ if (cmd != NULL)
 free(cmd);
 cmd = NULL;
 }
-
 }
 }

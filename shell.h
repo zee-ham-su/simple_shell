@@ -15,6 +15,6 @@ void prompt(char *shellName);
 void tokenizeCommand(char *cmd, char *argv[], int *argc);
 void executecommand(char *command, char *argv[], char *path);
 void printEnvironment(void);
-int main(int argc, char *argv[]);
+
 
 #endif
