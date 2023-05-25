@@ -9,12 +9,12 @@
 
 #define MAX_ARGS 10
 
+
 extern char **environ;
 void prompt(char *shellName);
 void tokenizeCommand(char *cmd, char *argv[], int *argc);
-void execmd(char **argv);
 void executecommand(char *command, char *argv[], char *path);
 void printEnvironment(void);
-
+int main(int argc, char *argv[]);
 
 #endif
