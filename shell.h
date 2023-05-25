@@ -1,6 +1,8 @@
 #ifndef SHELL_H
 #define SHELL_H
 
+
+
 #include <string.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -15,6 +17,7 @@ void prompt(char *shellName);
 void tokenizeCommand(char *cmd, char *argv[], int *argc);
 void executecommand(char *command, char *argv[], char *path);
 void printEnvironment(void);
-
+void executeAbsoluteCommand(char *command, char *argv[]);
+void executeCommandInPath(char *command, char *argv[], char *path);
 
 #endif

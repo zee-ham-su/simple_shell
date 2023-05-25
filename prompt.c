@@ -6,6 +6,17 @@
 #include <sys/wait.h>
 #include <unistd.h>
 
+
+/**
+ * prompt - Display the shell prompt and handle user commands.
+ * @shellName: Name of the shell.
+ *
+ * This function displays the shell prompt, reads user input, and handles
+ * various commands. It continues to prompt
+ *     the user until the "exit" command
+ * is entered.
+ */
+
 void prompt(char *shellName)
 {
 char *cmd = NULL;
@@ -69,7 +80,7 @@ for (i = 0; i < argc; i++)
 printf("%s ", argv[i]);
 }
 printf("\n");
-
+printf("Executing command: %s\n", cmd);
 child_id = fork();
 if (child_id == -1)
 {
