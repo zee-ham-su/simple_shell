@@ -61,10 +61,9 @@ cmd = NULL;
 printEnvironment();
 continue;
 }
-printf("Command received: %s\n", cmd);
 
 tokenizeCommand(cmd, argv, &argc);
-printf("Tokenized arguments: ");
+
 for (i = 0; i < argc; i++)
 {
 printf("%s ", argv[i]);
