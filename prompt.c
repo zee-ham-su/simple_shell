@@ -51,6 +51,7 @@ exit(EXIT_SUCCESS);
 perror("ERROR");
 continue;
 }
+/*Exit Handling*/
 cmd[strcspn(cmd, "\n")] = '\0';
 if (strcmp(cmd, "exit") == 0)
 {
@@ -59,7 +60,8 @@ if (cmd != NULL)
 free(cmd);
 cmd = NULL;
 }
-/*printf("\n");*/
+/*printf("Exiting the shell...\n");*/
+perror("ERROR");
 exit(EXIT_SUCCESS);
 }
 if (strcmp(cmd, "env") == 0)
