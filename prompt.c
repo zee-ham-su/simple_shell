@@ -26,7 +26,7 @@ char *argv[MAX_ARGS];
 pid_t child_id;
 int status;
 int argc;
-int i;
+/*int i;*/
 char *path = getenv("PATH");
 
 for (;;)
@@ -76,11 +76,11 @@ continue;
 
 tokenizeCommand(cmd, argv, &argc);
 
-for (i = 0; i < argc; i++)
+/*for (i = 0; i < argc; i++)
 {
 printf("%s ", argv[i]);
 }
-printf("\n");
+printf("\n");*/
 /*printf("Executing command: %s\n", cmd);*/
 child_id = fork();
 if (child_id == -1)
