@@ -45,7 +45,7 @@ cmd = NULL;
 }
 if (feof(stdin))
 {
-printf("\n");
+/*printf("\n");*/
 exit(EXIT_SUCCESS);
 }
 perror("ERROR");
