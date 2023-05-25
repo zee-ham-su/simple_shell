@@ -61,7 +61,6 @@ free(cmd);
 cmd = NULL;
 }
 /*printf("Exiting the shell...\n");*/
-perror("ERROR");
 exit(EXIT_SUCCESS);
 }
 if (strcmp(cmd, "env") == 0)
@@ -82,7 +81,7 @@ for (i = 0; i < argc; i++)
 printf("%s ", argv[i]);
 }
 printf("\n");
-printf("Executing command: %s\n", cmd);
+/*printf("Executing command: %s\n", cmd);*/
 child_id = fork();
 if (child_id == -1)
 {
