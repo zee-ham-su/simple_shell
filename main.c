@@ -6,10 +6,10 @@
  */
 int main(void)
 {
-	char **env = NULL;
+	/*char **env = NULL;*/
 	char *shellName = "MyShell";
 
-	prompt(shellName, env);
+	prompt(shellName);
 
 	return (0);
 }
