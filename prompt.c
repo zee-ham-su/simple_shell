@@ -28,7 +28,7 @@ int status;
 int argc;
 /*int i;*/
 char *path = getenv("PATH");
-int exitStatus;
+
 
 for (;;)
 {
@@ -54,20 +54,13 @@ continue;
 }
 /*Exit Handling*/
 cmd[strcspn(cmd, "\n")] = '\0';
-if (strncmp(cmd, "exit", 4) == 0)
+if (strcmp(cmd, "exit") == 0)
 {
 if (cmd != NULL)
 {
 free(cmd);
 cmd = NULL;
 }
-
-exitStatus = 0;
-if (argc > 1)
-{
-exitStatus = atoi(argv[1]);
-}
-exit (exitStatus);
 
 
 /*printf("Exiting the shell...\n");*/
