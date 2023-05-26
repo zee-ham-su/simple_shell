@@ -22,7 +22,7 @@ char *token;
 
 for (;;)
 {
-token = strtok(cmd, " ");
+token = strtok(cmd, " ; ");
 
 if (token == NULL || *argc >= MAX_ARGS - 1)
 break;
