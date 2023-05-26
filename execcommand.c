@@ -16,7 +16,7 @@
 
 void executeAbsoluteCommand(char *command, char *argv[])
 {
-    /* betty: function executes an absolute command */
+   
 if (execve(command, argv, environ) == -1)
 {
 perror("execve");
@@ -40,7 +40,6 @@ perror("execve");
 
 void executeCommandInPath(char *command, char *argv[], char *path)
 {
-    /* betty: function executes a command in the given path */
 char command_path[256] = "";
 size_t command_path_length = 0;
 int found = 0;
@@ -77,7 +76,7 @@ dir = strtok(NULL, ":");
 
 if (!found)
 {
-fprintf(stderr, "Executable not found: %s\n", command);
+  /* fprintf(stderr, "Executable not found: %s\n", command);*/
 }
 }
 
@@ -96,7 +95,7 @@ fprintf(stderr, "Executable not found: %s\n", command);
 
 void executecommand(char *command, char *argv[], char *path)
 {
-    /* betty: function executes a command */
+
 if (command != NULL && argv != NULL)
 {
 if (command[0] == '/' || command[0] == '.')
